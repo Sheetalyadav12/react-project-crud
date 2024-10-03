@@ -20,6 +20,8 @@ app.get ('/' ,(req,res)=>{
 
 app.get('/getUser/:id',(req,res)=>{
 const id = req.params.id;
+console.log("id",id);
+
 UserModel.findById({_id:id})  
 .then(users =>res.json(users))
     .catch(err=>res.json(err))
@@ -57,7 +59,7 @@ app.delete('/deleteUser/:id',(req,res)=>{
 
 })
 
-app.post('/createUser',(req,res)=>{
+app.post("/createUser",(req,res)=>{
     UserModel.create(req,body)
     .then(users => res.json(users))
     .catch(err =>res.json(err))
@@ -66,7 +68,7 @@ app.post('/createUser',(req,res)=>{
 
 
 
-app.listen(3001,()=>{
-    console.log("runnig our server");
+app.listen(5000,()=>{
+    console.log("Server is Running");
     
 })
